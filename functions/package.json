@@ -17,13 +17,15 @@
     "cookie-parse": "^0.4.0",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
+    "dayjs": "^1.10.7",
     "dotenv": "^10.0.0",
     "eslint-config-prettier": "^8.3.0",
     "exrpess": "^0.0.1-security",
     "firebase-admin": "^9.8.0",
     "firebase-functions": "^3.14.1",
     "helmet": "^4.6.0",
-    "hpp": "^0.2.3"
+    "hpp": "^0.2.3",
+    "pg": "^8.7.1"
   },
   "devDependencies": {
     "eslint": "^7.6.0",
