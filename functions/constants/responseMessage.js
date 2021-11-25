@@ -5,6 +5,7 @@ module.exports = {
   //my
   RENT_HISTORY_SUCCESS: '나의 예약 조회 성공',
   RECOMMENDATION_SUCCESS: '추천 차량 조회 성공',
+  LIKE_CHANGE_SUCCESS: '좋아요 상태 변경 성공',
 
   // 서버 내 오류
   INTERNAL_SERVER_ERROR: '서버 내 오류',

@@ -33,4 +33,48 @@ const getMyRecommendation = async (client, userId) => {
     return convertSnakeToCamel.keysToCamel(rows);
 };
 
-module.exports = {getMyRent, getMyRecommendation};
+const putLikeBtn = async (client, userId, carId, isLiked) => {
+    const { rows: existingRows } = await client.query(
+        `
+        SELECT *
+        FROM "like"
+        WHERE user_id = $1
+            AND car_id = $2
+            AND is_deleted = FALSE
+        `,
+        [userId, carId]
+    );
+
+    if (existingRows.length === 0) {
+        console.log(">>> making new")
+        const { rows } = await client.query(
+            `
+            INSERT INTO "like"
+            (user_id, car_id, is_liked)
+            VALUES
+            ($1, $2, $3)
+            RETURNING car_id, is_liked
+            `,
+            [userId, carId, isLiked],
+        );
+        return convertSnakeToCamel.keysToCamel(rows[0]);
+    } 
+    else {
+        console.log(">>> updating")
+        const data = _.merge({}, convertSnakeToCamel.keysToCamel(existingRows[0]), { isLiked });
+
+        const { rows } = await client.query(
+        `
+        UPDATE "like"
+        SET user_id = $1, car_id = $2, is_liked = $3, updated_at = now()
+        WHERE user_id = $1
+            AND car_id = $2
+        RETURNING car_id, is_liked
+        `,
+        [userId, carId, data.isLiked],
+        );
+        return convertSnakeToCamel.keysToCamel(rows[0]);
+    }
+};
+
+module.exports = {getMyRent, getMyRecommendation, putLikeBtn}
