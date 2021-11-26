@@ -10,7 +10,6 @@ module.exports = async (req, res) => {
 
   const { userId } = keysToCamel(req.headers);
   const {start, end, type, location, price, trend} = req.query;
-  console.log("받아온 데이터들",start, end, type, location, price, trend);
 
   if (!userId) {
     return res.status(statusCode.BAD_REQUEST).send(util.fail(statusCode.BAD_REQUEST, responseMessage.NULL_VALUE));
@@ -72,7 +71,7 @@ module.exports = async (req, res) => {
         response = response.filter(o=>carIdList.includes(o.carId))
     }
 
-    if(getReserveCarbyPopularity){
+    if(trend){
         const reserveCarByPopularity = await getReserveCarbyPopularity(client,trend);
         let carIdList = []
         reserveCarByPopularity.map((item)=>{
