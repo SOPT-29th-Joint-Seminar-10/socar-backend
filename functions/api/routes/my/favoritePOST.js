@@ -7,7 +7,8 @@ const { myDB } = require('../../../db');
 
 module.exports = async (req, res) => {
 
-  const {userId, carId, isLiked} = req.body
+  const {userId, carId, isLiked} = req.body;
+
   console.log(typeof isLiked);
   if (isLiked === null || isLiked === undefined) return res.status(statusCode.BAD_REQUEST).send(util.fail(statusCode.BAD_REQUEST, responseMessage.NULL_VALUE));
   if (!userId || !carId) return res.status(statusCode.BAD_REQUEST).send(util.fail(statusCode.BAD_REQUEST, responseMessage.NULL_VALUE));

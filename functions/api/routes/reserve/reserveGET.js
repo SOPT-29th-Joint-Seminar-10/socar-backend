@@ -8,7 +8,8 @@ const { getAllCarData, getIsLikedData, getReserveCarByDate, getReserveCarByType,
 
 module.exports = async (req, res) => {
 
-  const { userId } = keysToCamel(req.headers);
+  const { userid: userId } = req.headers;
+
   const {start, end, type, location, price, trend} = req.query;
 
   if (!userId) {

@@ -8,7 +8,7 @@ const { myDB } = require('../../../db');
 
 module.exports = async (req, res) => {
 
-  const {userId} = keysToCamel(req.headers);
+  const { userid: userId } = req.headers;
 
   if (!userId) return res.status(statusCode.BAD_REQUEST).send(util.fail(statusCode.BAD_REQUEST, responseMessage.NULL_VALUE));
   
