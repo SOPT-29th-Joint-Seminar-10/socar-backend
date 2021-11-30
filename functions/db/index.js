@@ -1,4 +1,4 @@
 module.exports = {
-    reserveDB: require('./reserve'),
-    myDB: require('./my'),
-  };
+  reserveDB: require('./reserve'),
+  myDB: require('./my'),
+};
