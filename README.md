@@ -1,7 +1,17 @@
 # socar-backend
 🚗  쏘카아아아악퉷  🚙
 
-## 
+<br/>
+
+## 역할 분배
+|HTTP METHOD| API | 담당자 | path | 완료 |
+| :----: | :----: | :----: | :----: | :----: |
+|GET|[차량 플랜] 나의 예약|이다은|/my/rent| ✅ |
+|GET|[차량 플랜] 추천 차량|이다은|/my/recommend| ✅ |
+|GET|[차량 예약] 차량 필터 리스트|박나희|/reserve| ✅ |
+|PUT|[차량 예약] 하트 버튼 클릭|이다은|/my/favorite| ✅ |
+
+<br/>
 
 ## 폴더링
 ```
@@ -40,8 +50,13 @@
     └── package.json
 ```
 
+<br/>
+
 ## git 전략
 
+![image](https://user-images.githubusercontent.com/71601985/145086014-e86b0475-a270-4b6b-b675-e83ea69539bb.png)
+
+<br/>
 
 ## API Docs
 Base URL: [https://asia-northeast3-socar-server-814e9.cloudfunctions.net/api](https://asia-northeast3-socar-server-814e9.cloudfunctions.net/api)
@@ -281,4 +296,8 @@ EX)
 ```
 </details>
 
+<br/>
+
 ## ERD
+
+![image](https://user-images.githubusercontent.com/71601985/145085960-24583d69-ba53-4ff1-869b-6916337fbe1a.png)
